@@ -1,0 +1,484 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}                    % Saving trees
+    \headheight=-10px
+    \headsep=0px
+    \marginparwidth=0px
+    \textheight=740px
+    \textwidth=460px
+    \hoffset=-23px
+    \usepackage{url}
+    \definecolor{urlcolor}{rgb}{0,0,0.65}
+    %\usepackage[colorlinks=true, backref=page, urlcolor=urlcolor]{hyperref}
+    \usepackage[hidelinks=true]{hyperref}
+\usepackage{tgtermes}
+\usepackage{tgbonum}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+%\sectionfont{
+%   \usefont{OT1}{phv}{b}{n}%       % bch-b-n: CharterBT-Bold font
+%   \sectionrule{0pt}{0pt}{-5pt}{3.5pt}}
+
+\sectionfont{%                      % Change font of \section command
+    \usefont{OT1}{qbk}{b}{n}%       % qbk-b-n: TeX Gyre Bonum Bold
+    \sectionrule{0pt}{0pt}{-8pt}{3.5pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}          % Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}       % Vertical space macro
+
+\definecolor{dark-grey}{gray}{0.15}
+
+% TeX Gyre Bonum bold
+\newcommand{\BonumBold}[1]{\usefont{OT1}{qbk}{b}{n} #1}
+% TeX Gyre Bonum
+\newcommand{\Bonum}[1]{\usefont{OT1}{qbk}{n}{n} #1}
+% TeX Gyre Termes
+\newcommand{\Termes}[1]{\usefont{OT1}{qtm}{m}{n} #1}
+
+\newcommand{\MyName}[1]{ % Name
+        \Huge \BonumBold{\hfill #1}
+        \par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+        \large \Termes{\hfill \textit{#1}}
+        \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\lowercase{#1}}}
+
+\newcommand{\DeobfsAddr}[6]{{#1}{#5}{#4}{#3}{#2}{#6}}
+
+\newcommand{\PersonalEntry}[2]{
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        %\parbox[t]{3.5cm}{
+        \textit{#1}}               % Entry name (address, email, etc.)
+        \hspace{2em}{\color{dark-grey}\footnotesize #2 }\par % Entry Value
+}
+
+\newcommand{\CorporateEntry}[2]{
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        %\parbox[t]{3.5cm}{
+        \textit{#1}}               % Entry name (address, email, etc.)
+        %\hspace{2em}
+               {
+          \parbox[t][0.5em]{12.5cm}{
+          \noindent\hangindent=2em\hangafter=0{
+            \color{dark-grey}
+            \footnotesize #2 }}
+          \normalsize \par}} % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        \textit{#1}}               % Entry name
+        \parbox[t][2.5em]{12.5cm}{%
+          \noindent\hangindent=30px\hangafter=0{%
+          \footnotesize #2}}%      %Entry value
+        \normalsize \par}
+
+\newcommand{\EducationEntry}[4]{
+        \noindent \textbf{#1} \hfill        % Study
+        \colorbox{Black}{%
+          \makebox(100,10){%
+            \color{White}\textbf{#2}}} \par % Duration
+        \noindent \textit{#3} \par          % School
+        \noindent\hangindent=2em\hangafter=0 {%
+          \color{dark-grey}%
+          \Bonum{\footnotesize #4}}%        % Description
+        \normalsize \par}
+
+\newcommand{\WorkEntry}[4]{                 % Same as \EducationEntry
+        \noindent \textbf{#1} \hfill        % Jobname
+        \colorbox{Black}{%
+          \makebox(100,10){%
+            \color{White}\textbf{#2}}} \par % Duration
+        \noindent \textit{#3} \par          % Company
+        \noindent\hangindent=2em\hangafter=0{%
+          \color{dark-grey}%
+          \Bonum{\footnotesize #4}}%        % Description
+        \normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%   \vspace*{-2em}
+%       \includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{isis agora lovecruft}
+\MySlogan{curriculum vitae}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal}{}
+
+\PersonalEntry{Github}
+  {\href{https://github.com/isislovecruft}{https://github.com/isislovecruft}}
+\PersonalEntry{Twitter}
+  {\href{https://twitter.com/isislovecruft}{@isislovecruft}}
+\PersonalEntry{Email}
+  {\href{mailto:\DeobfsAddr{isis}{id.}{nthevo}{nsi}{patter}{net}}
+    {\DeobfsAddr{isis}{id.}{nthevo}{nsi}{@patter}{net}}}
+\PersonalEntry{Blog}
+  {\href{https://fyb.patternsinthevoid.net/}{https://patternsinthevoid.net}}
+\PersonalEntry{Pronouns}
+  {\href{https://pronoun.is/they/them}{they/them}}
+
+%%% Business and Corporate Stuff
+%%% ------------------------------------------------------------
+\NewPart{Corporate}{}
+
+I'm the founder and owner of a security and cryptography
+contracting and consulting firm, Patterns in the Void, Ltd.  Past
+clientele have included The Tor Project, Signal Foundation, and others.
+\sepspace
+
+\CorporateEntry{Company}{Patterns in the Void, Ltd.}
+\CorporateEntry{Title}{Owner, Founder, and Chief Executive Officer}
+\CorporateEntry{Address}{297 Kingsbury Grade \#100, P.O. Box 4470}
+\CorporateEntry{}{Lake Tahoe, Nevada 89449 USA}
+
+\sepspace
+
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Professional experience}{}
+
+\WorkEntry{Applied Cryptographer}{2018 - present}
+ {Private Funder, Research Grant}{Custom elliptic-curve cryptographic
+ signature research, design, development, and optimisation.}
+\sepspace
+
+\WorkEntry{Applied Cryptographer}{2018}
+ {Signal Foundation, Contractor}{Custom zero-knowledge proof design
+ and multi-architecture cryptographic development targeting numerous
+ mobile devices and a web assembly API for a browser extension.}
+\sepspace
+
+\WorkEntry{Applied Cryptographer}{2016 - present} {Dalek Cryptography,
+  Contractor}{Research on elliptic curve cryptography, zero-knowledge protocol
+  design, and anonymous credentials.  Co-authored what is now the world's
+  fastest cryptographic library, \textsc{curve25519-dalek}. See
+  \href{https://github.com/dalek-cryptography}{the Dalek Cryptography Github
+    organisation}.}
+\sepspace
+
+\WorkEntry{Core Tor Software Developer}{2010 -- 2018}{The Tor Project,
+  Contractor}{Lead developer and maintainer of systems and components for Tor
+  bridge distribution, which includes managing access to a database of
+  all secret entrance relays in the Tor network, compartmentalising
+  this data via hashring structures in order to restrict access by
+  which distribution method is used, and securing the interfaces by
+  which which Tor users may retrieve this data from adversaries
+  hostile to Tor usage.  Past work on identifying and patching user
+  fingerprinting and security issues
+  for Tor Browser.  Ongoing efforts include improving Tor's circuit-level protocols
+  and cryptography, designing and implementing an
+  anonymous-credentials based system for censorship-resilient secret
+  sharing, and reviewing RFC-like proposals for changes to the Tor protocol. }
+\sepspace
+
+\WorkEntry{Software Developer and Security Consultant}{2011 -- 2012}{LEAP
+  Encryption Access Project, Part-time}{Development of several asynchronous
+  servers, including a distributed and scalable transparently-encrypting
+  remailer, which, at the time of design and implementation, handled seventeen
+  million email users per day.  The system, without modification, now handles
+  over a hundred million daily users.  Conducted security audits for systems
+  components and dependencies, and filed several CVEs in widely used
+  software, from Python's package manager to a GnuPG library in use by
+  over thirty Bitcoin exchanges. Provided extensive consulting with respect
+  to systems architecture and cryptographic engineering, including the
+  design of an alternative OpenPGP keyserver.}
+\sepspace
+
+\WorkEntry{Software Design Consultant}{2011 -- 2012}{Electronic Frontier
+  Foundation}{Worked with developers from the Electronic Frontier Foundation's
+  (EFF) technical team to design a system for heuristic classification of
+  benign network anomalies (e.g. due to NAT routers mangling packets) and
+  malicious behaviours in TCP/UDP packet routing.  The system, called
+  Switzerland, can be used between two parties to determine if a malicious
+  adversary is altering their digital communications, as well as to inform
+  users of the types of malicious behaviours present in packet flows.}
+\sepspace
+
+\WorkEntry{Software Developer and Distributed Systems Architect}{2010 -- 2012}
+{The Tor Project/Open Observatory of Network Interference}{Reverse
+  engineered the software and network testing methodologies of dozens of
+  proprietary network testing and anomaly detection software tools.  Designed
+  the Open Observatory of Network Inference (OONI): a global, distributed
+  platform for detection and measurement of network anomalies, including
+  online censorship and both passive and active malicious behaviours.
+  Designed and developed distributed backend systems for collection of
+  measurement data which are now deployed on over 300,000 MLab and PlanetLab
+  servers worldwide.  Researched, designed, and published open specifications
+  for effective methodologies for detection of anomalous behaviour.  Designed
+  and developed numerous tests which run on the OONI platform, including tests
+  for misbehaving and poisoned DNS servers, captive portal detection and
+  misbehaviour, and anomalous behaviours within Transport Layer Protocol (TLS)
+  handshake and session resumption negotiation.}
+\sepspace
+
+\WorkEntry{Cryptographic Protocol Researcher}{2009 -- 2012}{Open
+  Whispersystems}{Designed a modified Fully-Hashed Menezes-Qu-Vanstone
+  protocol in an attempt to design a multi-party, forward-secret,
+  end-to-end-encrypted, synchronous communications protocol with low overhead,
+  such that it could feasibly be deployed over an SMS-based transport within
+  Open Whispersystems flagship open source product TextSecure (now called
+  Signal).  Later, researched the feasibility and efficiency of applying the
+  Multi-Party Off-The-Record (MPOTR) protocol.  During this time, I also
+  mentored several students in various secure mobile applications development
+  projects, including aspects of protocol design, cryptography, and backend
+  systems design, for Open Whispersystems.}
+\sepspace
+
+\newpage
+
+\WorkEntry{Machine Learning Researcher}{2008 -- 2010}{Private Grant}
+  {Ported a fully back-propagational linguistic neural network from SPARC
+  to x86 and made several optimisations allowing for parallelisation,
+  developed an extensive interface for researchers to obtain data
+  regarding neural states during execution, and constructed an OpenMPI-based
+  cluster on which several research experiments on the neural network were
+  conducted over the following two years.}
+\sepspace
+
+\WorkEntry{Security and Cryptographic Design Consultant}{2007 -- present}
+{Private Clientele, Contractor}{Security auditing and cryptographic
+  design consulting to numerous clients, including several startups within the
+  Bitcoin community.  Conducted security audits for several S\&P 500 companies
+  to find exploitable vulnerabilities in networked applications, including
+  banking and financial software, hypervisor and virtual machine management
+  software, and a major browser.}
+\sepspace
+
+\WorkEntry{Software Developer}{2006 -- 2009}{March Hare Communications
+  Collective}{Designed and developed open source mobile applications for
+  grass-roots activists to conduct better crisis management and have
+  capabilities for secure communication in political protest situations.  The
+  development was centered around the Android platform, but work was conducted
+  alongside an iOS developer in order to produce a cross-platform solution.
+  The applications included solutions for secure crisis mapping in hostile
+  situations, secure location and event reporting, secure and metadata-free
+  synchronous messaging, and a tool to remotely trigger the deletion of
+  personal information on a device.}
+\sepspace
+
+\WorkEntry{Various Contributions}{2006 -- present}{Volunteer}{Volunteer
+  contributions to numerous Open Source Software (OSS) projects,
+  including Open Whispersystems, March-Hare Communications Collective, LEAP
+  Encryption Access Project, Briar Project, Tahoe-LAFS, The Tor Project, the
+  Electronic Frontier Foundation, and others.}
+\sepspace
+
+\NewPart{Mentorships \& Leadership Roles}{}
+
+\WorkEntry{Tor Internship}{2017}{Mentor}{Conducted a hiring and
+  interviewing process, and then lead an intern in the
+  development of several Rust libraries and tools for measuring the
+  available bandwidth of Tor bridge relays.}
+\sepspace
+
+\WorkEntry{Tor Summer of Privacy}{2015}{Assistant Mentor}{Assisted in the
+  mentorship of a volunteer student project, called GetTor, which provides
+  alternate mechanisms for securely downloading and installing Tor and/or Tor
+  Browser in places where access to The Tor Project servers is censored.}
+\sepspace
+
+\WorkEntry{Google Summer of Code}{2014}{Mentor}{Mentored a student in
+  designing a new distribution system for Tor bridge relays to Tor users in
+  censored regains via Twitter's HTTP API.}
+\sepspace
+
+\WorkEntry{Google Summer of Code}{2013}{Assistant Mentor}{Mentored a student project to
+  design and implement a censorship analysis system \\
+  (\href{https://explorer.ooni.torproject.org/world/}
+  {https://explorer.ooni.torproject.org/world/}) using data from the Open
+  Observatory of Network Interference.}
+\sepspace
+
+%\newpage
+
+\WorkEntry{Open Whispersystems Spring Break of Code}{2012}{Mentor}{Mentored
+  several students in asynchronous programming and scalable redesign of
+  several backend servers for an encrypted voice call system, secure location
+  sharing, and server-private contact list storage.}
+\sepspace
+
+\NewPart{Invited Talks}{}
+
+%%% XXX maybe fill in this section, not sure. i don't want to hilight my talks
+
+Slides from my talks including their LaTeX sources are generally made
+available in \href{https://github.com/isislovecruft/talks}{a public
+Github repo}, and video--when available--is provided on
+\href{https://www.youtube.com/channel/UClJDPyhdnSkGoqb-x9gImhA}{my YouTube channel}.
+
+\WorkEntry{Rustconf}{2018}{Portland, Oregon}{Co-presented a talk on
+  incrementally rewriting the Tor network daemon in Rust and the security
+  vulnerabilities and challenges we found and faced along the way.}
+\sepspace
+
+\WorkEntry{Noisebridge}{2017}{San Francisco, California}{Presented a history of
+  security vulnerabilities and side-channel attacks on real-world cryptographic
+  libraries, along with the countermeasures we took to avoid these problems in
+  the design of the Dalek Cryptography libraries.}
+\sepspace
+
+\WorkEntry{Rustconf}{2017}{Portland, Oregon}{Co-presented a talk on
+  creating curve25519-dalek, which is currently the world's fastest cryptographic
+  library and is in use by billions of people.}
+\sepspace
+
+\WorkEntry{University of Waterloo}{2016}{Waterloo, Ontario, Canada}{Invited talk
+  presenting Hyphae, \href{https://patternsinthevoid.net/hyphae}, a
+  censorship-resistant system for using zero-knowledge proof-of-social-graphs
+  and private behaviour tracking via anonymous credentials based on algebraic
+  MACs, to the Cryptography, Security, and Privacy (CrySP) department.}
+\sepspace
+
+\WorkEntry{Radboud Universiteit}{2016}{Nijmegen, Netherlands}{Guest
+  lecture for the Advanced Network Security course on the history and current
+  status of mixnets, anonymity networks, and anonymous communcations systems,
+  given at Raboud Unversiteit in Nijmegen to students following the
+  \href{https://www.true-security.nl/}{TRU/e Computer Security Master's
+    Programme}.  Afterwards, I freely posted the
+  \href{https://www.youtube.com/watch?v=xGIE7KTJiBY&feature=youtu.be}
+    {video recording on YouTube}, where it received 4,000 views within the
+  first week.}
+\sepspace
+
+\WorkEntry{Radboud Universiteit}{2016}{Nijmegen, Netherlands}{Talk
+  given to graduate students, researchers, and faculty of the Digital
+  Security group at the \href{http://www.ru.nl/icis/}{Institute for Computing and
+  Information Sciences} at Raboud Unversiteit
+  in Nijmegen, the Netherlands, concerning my work with
+  \href{https://www.torproject.org/}{The Tor Project} on protecting Tor bridges
+  from discovery by nation-state adversaries.}
+\sepspace
+
+\WorkEntry{EI/$\psi$}{2015}{Utrecht, Netherlands}{I
+  \href{https://www.win.tue.nl/eipsi/cwg/aank\%20dec\%202015.pdf}{spoke} to
+  the \href{https://www.win.tue.nl/eipsi/seminars_cwg.html}{Cryptography
+  Working Group} at the \href{http://www.win.tue.nl/eipsi}{Eindhoven
+  Institute for the Protection of Systems and Information} (part of
+  Wiskunden en Informatica at Technisches Universiteit Eindhoven) in Utrecht,
+  the Netherlands, about the cryptography for my current work on using
+  pairing-based anonymous credential schemes for social distribution of Tor
+  bridge relays.}
+\sepspace
+
+\WorkEntry{ThoughtWorks}{2015}{Berlin, Germany}{
+  I spoke about Tor's circuits, path selection, and hidden services, (and the
+  basics of the cryptography for those things) at a women's-only
+  \href{http://www.meetup.com/de/ThoughtWorks-Technology-Radar-Briefing-Berlin/events/226058216/}
+  {event held at ThoughtWorks' Werkstatt Berlin} space.}
+\sepspace
+
+\WorkEntry{FOSDEM: FOSS Developers' European Meeting}{2013}{Brussels,
+  Belgium}{I spoke on mine and my team's work to create a peer-reviewed
+  taxonomy for discussion of surveillance and censorship, as well as a free
+  and open source software toolset, called the Open Observatory of Network
+  Interference (OONI), for producing open data.  This talk covered
+  the vision of OONI as well as technical details of our tools. (See
+  \href{https://archive.fosdem.org/2013/schedule/event/ooni/}
+       {https://archive.fosdem.org/2013/schedule/event/ooni/} for
+       recordings.)}
+\sepspace
+
+\WorkEntry{DebConf'13: Debian Developers Conference}{2013}{Vaumarcus,
+  Switzerland}{Workshop with Debian Developers on tactics for higher-security
+  package management, including an introduction to software reproducible builds for
+  Debian package maintainers.}
+\sepspace
+
+%\newpage
+
+\WorkEntry{Google}{2012}{Brussels, Belgium}{Talk to Google's Internal Security
+  Team and the Measurement Lab (MLAB) team regarding secure distributed
+  systems design and measurement data protection and integrity, with respect
+  to the deployment of a global distributed network anomaly detection system
+  on 300,000 machines.}
+\sepspace
+
+\WorkEntry{University of Washington, Olympia}{2009}{Olympia,
+  Washington}{Lecture and workshop for journalism students in the Department
+  of Communication at the University of Washington, on the topic of secure
+  communications for journalists and their sources.}
+\sepspace
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+%% In order of how willing I am to write them:
+\SkillsEntry{Languages}{\textsc{Rust}, \textsc{C/C++},
+  \textsc{Python}, \textsc{Swift}, \textsc{Julia},
+  \textsc{Go}, \textsc{x86/ARM/MIPS ASMs}, \textsc{Common Lisp}, \textsc{Bash}, \textsc{Lua},
+  \textsc{Javascript}, HTML5, CSS3, and \textsc{Java}}
+
+%% In no particular order and clearly incomplete because it says nothing about
+%% bicycle mechanics, asciiart, or bytebytes:
+\SkillsEntry{Software}{Low- to High-Level Cryptographic Design, Cryptographic Engineering,
+  Network Programming, Asynchronous Programming, Distributed Systems Design,
+  Misuse-Resistant API Design, Security Best Practices}
+
+%\noindent\hangindent=2em\hangafter=0
+%\parbox{\spacebox}{
+%  \textit{Bytebeats}}
+%\parbox[t][2.5em]{12.5cm}{
+%  \noindent\hangindent=30px\hangafter=0
+%    \small
+%\begin{verbatim}
+%
+%python3 -c'print(foo)'
+%
+%\end{verbatim}
+%\normalsize\par}
+
+%x='if(t%2)else';python3 -c'[print(t>>15&(t>>(2$x 4))%(3+(t>>(8$x 11))%4)+\
+%(t>>10)|42&t>>7&t<<9,end='')for t in range(2**20)]'|aplay -c2 -r4
+%
+
+%\SkillsEntry{Bytebeats}{
+%  \begin{minipage}{\textwidth}
+    
+%\end{minipage}}
+
+%%
+%% x=''if(t%2)else'';python3 -c''[print(t>>15&(t>>(2$x 4))%(3+(t>>(8$x 11))%4)\
+%%   
+%%
+%%                   ↑↑ CLEARLY MY GREATEST SKILL ↑↑
+
+%%% References
+%%% ------------------------------------------------------------
+\NewPart{References}{}
+\hspace{0.6cm} \textit{Available upon request}
+
+%XXX: You could do name-dropping here, but I'm not sure whether that's helpful
+%     or required.  For example, listing Ian, who would probably be willing to
+%     write you a letter that he himself wanted to have you as a student
+%     looks quite impressive... not sure whether it's helpful or necessary,
+%     though.
+
+\end{document}
