@@ -13,12 +13,21 @@
     \textheight=740px
     \textwidth=460px
     \hoffset=-23px
-    \usepackage{url}
-    \definecolor{urlcolor}{rgb}{0,0,0.65}
-    %\usepackage[colorlinks=true, backref=page, urlcolor=urlcolor]{hyperref}
-    \usepackage[hidelinks=true]{hyperref}
 \usepackage{tgtermes}
 \usepackage{tgbonum}
+
+\definecolor{dark-grey}{gray}{0.15}
+
+%\usepackage{url}
+\definecolor{urlcolor}{rgb}{0,0,0.65}
+%\usepackage[colorlinks=true, backref=page, urlcolor=urlcolor]{hyperref}
+%\usepackage[hidelinks=true]{hyperref}
+\usepackage[
+  colorlinks=false,                      % hyperlinks will be black
+  linkbordercolor=dark-grey,             % hyperlink borders will be grey
+  allbordercolors={0.15 0.15 0.15},
+  pdfborderstyle={/S/U/W 1}              % border style will be underline of width 1pt
+]{hyperref}
 
 \frenchspacing              % Better looking spacings after periods
 \pagestyle{empty}           % No pagenumbers/headers/footers
@@ -40,8 +49,6 @@
 \newlength{\spacebox}
 \settowidth{\spacebox}{8888888888}          % Box to align text
 \newcommand{\sepspace}{\vspace*{1em}}       % Vertical space macro
-
-\definecolor{dark-grey}{gray}{0.15}
 
 % TeX Gyre Bonum bold
 \newcommand{\BonumBold}[1]{\usefont{OT1}{qbk}{b}{n} #1}
@@ -164,7 +171,7 @@ clientele have included The Tor Project, Signal Foundation, and others.
 %%% ------------------------------------------------------------
 \NewPart{Professional experience}{}
 
-\WorkEntry{Applied Cryptographer}{2019 - present}
+\WorkEntry{Applied Cryptographer}{2019 -- present}
  {Private Clientele, Consultant/Contractor}{Cryptographic protocol
    design and review, microarchitecture and context specific
    cryptographic optimisations, custom signature and zero-knowledge
@@ -179,7 +186,7 @@ clientele have included The Tor Project, Signal Foundation, and others.
    several systems for formal methods, including fiat-crypto and cryptol.}
 \sepspace
 
-\WorkEntry{Applied Cryptographer}{2018 - 2019}
+\WorkEntry{Applied Cryptographer}{2018 -- 2019}
  {Private Funder, Research Grant}{Custom elliptic-curve cryptographic
  signature research, design, development, and optimisation.}
 \sepspace
@@ -190,7 +197,9 @@ clientele have included The Tor Project, Signal Foundation, and others.
  mobile devices and a web assembly API for a browser extension.}
 \sepspace
 
-\WorkEntry{Applied Cryptographer}{2016 - present} {Dalek Cryptography,
+\newpage
+
+\WorkEntry{Applied Cryptographer}{2016 -- present} {Dalek Cryptography,
   Contractor}{Research on elliptic curve cryptography, zero-knowledge protocol
   design, and anonymous credentials.  Co-authored what is now the world's
   fastest cryptographic library, \textsc{curve25519-dalek}, including
@@ -260,6 +269,8 @@ clientele have included The Tor Project, Signal Foundation, and others.
   handshake and session resumption negotiation.}
 \sepspace
 
+\newpage
+
 \WorkEntry{Cryptographic Protocol Researcher}{2009 -- 2012}{Open
   Whispersystems}{Designed a modified Fully-Hashed Menezes-Qu-Vanstone
   protocol in an attempt to design a multi-party, forward-secret,
@@ -272,8 +283,6 @@ clientele have included The Tor Project, Signal Foundation, and others.
   projects, including aspects of protocol design, cryptography, and backend
   systems design, for Open Whispersystems.}
 \sepspace
-
-\newpage
 
 \WorkEntry{Machine Learning Researcher}{2008 -- 2010}{Private Grant}
   {Ported a fully back-propagational linguistic neural network from SPARC
@@ -314,6 +323,13 @@ clientele have included The Tor Project, Signal Foundation, and others.
 
 \NewPart{Mentorships \& Leadership Roles}{}
 
+\WorkEntry{Dalek Cryptography}{2018 -- present}{Mentor}{Assisted several high
+  school through university students in writing their first patches to various
+  Dalek Cryptography libraries.}
+\sepspace
+
+\newpage
+
 \WorkEntry{Tor Internship}{2017}{Mentor}{Conducted a hiring and
   interviewing process, and then lead an intern in the
   development of several Rust libraries and tools for measuring the
@@ -350,10 +366,12 @@ clientele have included The Tor Project, Signal Foundation, and others.
 
 %%% XXX maybe fill in this section, not sure. i don't want to hilight my talks
 
-Slides from my talks including their LaTeX sources are generally made
+Slides from my talks --- including their LaTeX sources --- are generally made
 available in \href{https://github.com/isislovecruft/talks}{a public
 Github repo}, and video--when available--is provided on
 \href{https://www.youtube.com/channel/UClJDPyhdnSkGoqb-x9gImhA}{my YouTube channel}.
+
+\sepspace
 
 \WorkEntry{!!Con West}{2020}{University of California, Santa Cruz}{Keynote
   presentation on implementing supersingular isogeny key encapsulation over a
@@ -371,6 +389,8 @@ Github repo}, and video--when available--is provided on
   libraries, along with the countermeasures we took to avoid these problems in
   the design of the Dalek Cryptography libraries.}
 \sepspace
+
+\newpage
 
 \WorkEntry{Rustconf}{2017}{Portland, Oregon}{Co-presented a talk on
   creating curve25519-dalek, which is currently the world's fastest cryptographic
@@ -439,7 +459,7 @@ Github repo}, and video--when available--is provided on
   Debian package maintainers.}
 \sepspace
 
-%\newpage
+\newpage
 
 \WorkEntry{Google}{2012}{Brussels, Belgium}{Talk to Google's Internal Security
   Team and the Measurement Lab (MLAB) team regarding secure distributed
